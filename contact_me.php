@@ -1,3 +1,56 @@
+<?php
+// Check for empty fields
+
+
+$name = strip_tags(htmlspecialchars($_POST['name']));
+$email = strip_tags(htmlspecialchars($_POST['_replyto']));
+$phone = strip_tags(htmlspecialchars($_POST['phone']));
+$message = strip_tags(htmlspecialchars($_POST['message']));
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+require 'PHPMailerAutoload.php';
+
+// Load Composer's autoloader
+
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->SMTPDebug = false;                      // Enable verbose debug output
+    $mail->isSMTP();                                            // Send using SMTP
+    $mail->Host       = 'mail.schuller.com.au';                    // Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'contact@schuller.com.au';                     // SMTP username
+    $mail->Password   = '3$ZQ&Dg$EtH';                               // SMTP password
+    $mail->SMTPSecure = 'tls';//PHPMailer::ENCRYPTION_STARTTLS; Enable TLS encryption, `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+    //Recipients
+    $mail->setFrom('contact@schuller.com.au', 'Website Message');
+    $mail->addAddress('andrew@schuller.com.au');     // Add a recipient
+    $mail->addReplyTo($email, $name);
+    $mail->addCC('thestudio2@bigpond.com');
+
+    // Attachments
+    // Optional name
+
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = $name . " messaged you from your website!";
+    $mail->Body    = "Name: " . $name . "<br> <br> Phone Number: " . $phone . "<br><br> Email: " . $email . "<br><br> Message: <br><br>" . $message;
+
+    $mail->send();
+    $text = "Thanks, I'll be in touch with you soon.";
+} catch (Exception $e) {
+  $text = "Sorry, there was an error. Please try again.";
+
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,7 +63,9 @@
         <title>Andrew Schuller</title>
         <!-- Favicon-->
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -20,6 +75,11 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
     </head>
 
     <script type="text/javascript">
@@ -35,15 +95,35 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1 text-center"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Services</a></li>
-                        <li class="nav-item mx-0 mx-lg-1 text-center"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Services</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-white text-center">
+        <div id="myModal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Contact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body py-0">
+                <?php
+                echo $text;
+?>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>        <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-              <h2 class="page-section-heading text-center text-uppercase text-white mb-0" style="font-size:190%;">Andrew Schuller</h2>
+              <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Andrew Schuller</h2>
 
                 <p class="masthead-subheading font-weight-light mb-0">Consultancy &nbsp;Services</p>
             </div>
@@ -122,7 +202,7 @@
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0">
-                                    <textarea style="white-space: pre-wrap;" class="form-control pt-3" name="message" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control pt-3" name="message" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -137,20 +217,13 @@
 
 
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright © Andrew Schuller | <?php
-$copyYear = 2020;
-$curYear = date('Y');
-echo $copyYear . (($copyYear != $curYear) ? '-' . $curYear : '');
-?>
-</small></div>
+            <div class="container"><small>Copyright © Andrew Schuller | 2020</small></div>
         </div>
         <div class="scroll-to-top d-lg-none position-fixed">
             <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
         <!-- <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script> -->
         <script src="js/scripts.js"></script>
