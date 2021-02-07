@@ -10126,10 +10126,10 @@ h3 {
 .masthead .masthead-subheading {
   font-size: 1.25rem;
 }
-.fa-github, .fa-linkedin-in {
+.fa-github, .fa-linkedin {
   transition: color 0.25s ease-in-out;
 }
-.fa-github:hover, .fa-linkedin-in:hover {
+.fa-github:hover, .fa-linkedin:hover {
   color: #ffe16b;
 }
 .masthead .masthead-avatar {
