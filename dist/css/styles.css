@@ -1995,7 +1995,7 @@ pre code {
 }
 .form-control:focus {
   color: #495057;
-  background-color: #fff;
+  background-color: none;
   border-color: #6bebd1;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
@@ -3978,7 +3978,7 @@ input[type=button].btn-block {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
-  text-shadow: 3px 3px black;
+  text-shadow: 0.1rem 0.1rem black;
   transition: color 0.5s ease-in-out;
 }
 .navbar-brand:hover, .navbar-brand:focus {
@@ -10007,11 +10007,13 @@ h3 {
 }
 .divider-custom .divider-custom-line {
   width: 100%;
-  max-width: 7rem;
+  max-width: 10rem;
   height: 0.25rem;
   background-color: #2c3e50;
-  border-radius: 1rem;
   border-color: #2c3e50 !important;
+}
+#about-line {
+  box-shadow: 2px 2px black;
 }
 .divider-custom .divider-custom-line:first-child {
   margin-right: 1rem;
@@ -10129,7 +10131,7 @@ h3 {
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   line-height: 2.75rem;
   text-shadow: 4px 4px black;
 }
@@ -10176,7 +10178,6 @@ h3 {
   position: relative;
   display: block;
   max-width: 25rem;
-  border-radius: 0.5rem;
   overflow: hidden;
 }
 .portfolio .portfolio-item .portfolio-item-caption {
@@ -10254,7 +10255,7 @@ h3 {
 }
 
 .floating-label-form-group-with-focus label {
-  color: #1abc9c;
+  color: #666666;
 }
 
 form .row:first-child .floating-label-form-group {
