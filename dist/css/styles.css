@@ -10149,7 +10149,7 @@ h3 {
 }
 .masthead .masthead-avatar {
   width: 15rem;
-  border: 10px solid white;
+  border: 8px solid white;
   transition: all 0.25s ease-in-out;
   background-image: url("../../src/assets/img/blank-profile.png");
 
@@ -10177,7 +10177,6 @@ h3 {
   cursor: pointer;
   position: relative;
   display: block;
-  max-width: 25rem;
   overflow: hidden;
 }
 .portfolio .portfolio-item .portfolio-item-caption {
@@ -10186,13 +10185,14 @@ h3 {
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  color:#333;
+  background-color: rgba(255, 225, 107,0.95);
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;
 }
 .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .portfolio-modal .portfolio-modal-title {
@@ -10260,6 +10260,13 @@ h3 {
 
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #e9ecef;
+}
+
+.text-yellow {
+  color: #ffe16b;
+}
+.text-yellow:hover {
+  color:white;
 }
 
 .footer {
