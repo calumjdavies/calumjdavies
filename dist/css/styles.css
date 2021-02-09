@@ -5460,7 +5460,7 @@ a.close.disabled {
   background-color: #fff;
   background-clip: padding-box;
   border: 0 solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.75rem;
+  border-radius: 0;
   outline: 0;
 }
 
@@ -10224,8 +10224,8 @@ h3 {
   z-index: 1;
   right: 1.5rem;
   top: 1rem;
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: 1rem;
+  line-height: 1rem;
   color: #2c3e50;
   opacity: 1;
 }
