@@ -10140,11 +10140,11 @@ h3 {
   text-shadow: 2px 2px black;
 
 }
-.fa-github, .fa-linkedin {
+.masthead-subheading .fa-github, .fa-linkedin {
   transition: color 0.25s ease-in-out;
   color: white;
 }
-.fa-github:hover, .fa-linkedin:hover {
+.masthead-subheading .fa-github:hover, .fa-linkedin:hover {
   color: #ffe16b;
 }
 .masthead .masthead-avatar {
@@ -10271,7 +10271,7 @@ form .row:first-child .floating-label-form-group {
 
 .footer {
   padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
   color: #fff;
   text-shadow: 3px 3px black;
 }
