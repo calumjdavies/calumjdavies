@@ -10154,11 +10154,11 @@ h3 {
   text-shadow: 2px 2px black;
 
 }
-.masthead-subheading .fa-github, .fa-linkedin {
+.masthead-subheading .fa-github, .masthead-subheading .fa-linkedin {
   transition: color 0.25s ease-in-out;
   color: white;
 }
-.masthead-subheading .fa-github:hover, .fa-linkedin:hover {
+.masthead-subheading .fa-github:hover, .masthead-subheading .fa-linkedin:hover {
   color: #ffe16b;
 }
 .masthead .masthead-avatar {
