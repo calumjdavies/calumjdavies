@@ -10129,6 +10129,18 @@ h3 {
   text-shadow: 2px 2px black;
 
 }
+#about {
+  background-image: url('../../src/assets/img/bris-night.jpeg');
+  background-size:cover;
+}
+#portfolio, #contact {
+  background-image: url('../../src/assets/img/hero-bg.png');
+  background-size:cover;
+}
+#headerWrap {
+  background-image: url('../../src/assets/img/masthead-bg.jpg');
+  background-size:cover;
+}
 .masthead {
   padding-bottom: 6rem;
 }
