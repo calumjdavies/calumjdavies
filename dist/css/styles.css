@@ -10293,6 +10293,7 @@ form .row:first-child .floating-label-form-group {
 }
 .text-yellow:hover {
   color:white;
+  text-decoration: 0 0 black;
 }
 
 .footer {
