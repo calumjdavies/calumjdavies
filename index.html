@@ -20,8 +20,19 @@
     <link href="dist/css/styles.css" rel="stylesheet" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
+  <!-- Wait to load -->
+
+  <script type="text/javascript">
+
+    $(window).load(function() {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");
+    });
+  </script>
+  </head>
 <body id="page-top">
     <div id="headerWrap">
 
