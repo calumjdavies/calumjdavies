@@ -259,11 +259,6 @@ textarea {
   line-height: inherit;
 }
 
-textarea {
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-}
-
 button,
 input {
   overflow: visible;
@@ -313,6 +308,8 @@ input[type=checkbox] {
 textarea {
   overflow: auto;
   resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 fieldset {
