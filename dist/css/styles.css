@@ -257,7 +257,11 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+textarea {
   white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 button,
